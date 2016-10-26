@@ -6,11 +6,36 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		EF57E1411DC02EA7009C4CB2 /* piCodeLEDBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piCodeLEDBasic.swift; sourceTree = "<group>"; };
+		EF57E1421DC02EA7009C4CB2 /* piCodeLEDTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piCodeLEDTimer.swift; sourceTree = "<group>"; };
+		EF57E1431DC02EBE009C4CB2 /* piCodeGPIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piCodeGPIO.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		EF57E1361DC02D25009C4CB2 = {
 			isa = PBXGroup;
 			children = (
+				EF57E13D1DC02DDC009C4CB2 /* Projects */,
+				EF57E1401DC02E36009C4CB2 /* Modules */,
 			);
+			sourceTree = "<group>";
+		};
+		EF57E13D1DC02DDC009C4CB2 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				EF57E1411DC02EA7009C4CB2 /* piCodeLEDBasic.swift */,
+				EF57E1421DC02EA7009C4CB2 /* piCodeLEDTimer.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		EF57E1401DC02E36009C4CB2 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EF57E1431DC02EBE009C4CB2 /* piCodeGPIO.swift */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
