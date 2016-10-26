@@ -5,6 +5,7 @@
 ## Build generated
 build/
 DerivedData/
+Swift_Lite_Sample_Files.xcodeproj
 
 ## Various settings
 *.pbxuser
