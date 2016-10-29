@@ -9,3 +9,5 @@ Swift-Lite is built from the official repo on Swift.org. It includes Foundation,
 
 For more information go to http://swift-lite.org
 
+For installation and code tutorials go to https://www.hackster.io/futurejones 
+
