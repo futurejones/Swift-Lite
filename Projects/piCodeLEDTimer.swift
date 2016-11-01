@@ -23,13 +23,13 @@ gp.value = 0            // Set intial value 0 = off 1 = on
 var intervalTimer: Timer!   // this timer controls the time intervals the LED turns on. As this is a repeating timer it needs to be added to a runloop.
 var flashTimer: Timer!      // this timer controls the length of time the LED remains on.
 
-var flashNumber = 5 // the number of flashes
+var flashNumber = 5     // the number of flashes
 
-var flashIntervalTime: Double = 2.0 // the time between the start of each flash
+var flashIntervalTime: Double = 2.0     // the time between the start of each flash
 
-var flashLengthTime: Double = 0.75 // the length of time of each flash
+var flashLengthTime: Double = 0.75  // the length of time of each flash
 
-var runLoopTime: Double = 11 // the lenghth of time the runloop will run - set this to be longer than the time for all the flashes to complete
+var runLoopTime: Double = 11    // the lenghth of time the runloop will run - set this to be longer than the time for all the flashes to complete
 // the runloop can be set to continous if the is action you need.
 
 
