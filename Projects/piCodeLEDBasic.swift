@@ -1,4 +1,4 @@
-// Created with PiCode for Swift 3.0
+// PiCode LED Basic for Swift 3.0
 // A Swift-Lite project file
 // type:project
 // name:piCodeLEDBasic

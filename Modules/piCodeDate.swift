@@ -1,7 +1,7 @@
-// Created with SwiftPi
+// PiCode Date for Swift 3.0
 // A Swift-Lite Module File
 // type:module
-// name:date
+// name:piCodeDate
 
 import Foundation
 
