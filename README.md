@@ -6,9 +6,11 @@
 * Helloworld
 * Flash LED Basic
 * Flash LED using Timers
+* HC-SR04 Ultrasonics Distance Measurement
 
 ####Modules
 * Date - Returns the current date in full style
+* Time - Uses DispatchTime to insert wait time - Usage similar to usleep/sleep
 * Shell - Run terminal shell commands
 * GPIO - Access and control the GPIO pins - Features auto board type detect for all 40 pin Raspberry Pi's
 
