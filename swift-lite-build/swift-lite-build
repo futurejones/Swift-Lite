@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# Copyright (c) FutureJones.
+# http://www.swift-lite.org
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+usage="swift-lite-build [--help|-h] [--version|-V] [Usage: swift-lite-build filename]"
+version="swift-lite-build 2.0.6"
+
+for i ; do
+    case "$i" in
+        --help|-h) echo ${usage}; exit 0 ;;
+        --version|-V) echo ${version}; exit 0 ;;
+    esac
+done
+
+declare file=$1
+declare includes=""
+
+# if filename not supplied at the command prompt
+# display usage message and exit
+[ $# -eq 0 ] && { echo "Usage: swift-lite-build filename"; exit 1; }
+
+# if file not found, display an error and exit
+[ ! -f "$file" ] && { echo "ERROR: $_file file not found."; exit 2; }
+
+# if file is not .swift, display an error and exit
+[ "${file##*.}" != "swift" ] && { echo "ERROR: $file is not a Swift file."; exit 2; }
+
+# if we are here, means everything is okay and we can get started
+echo
+echo "Processing $file..."
+
+# scan file for included modules
+echo
+echo "Scanning project for modules"
+declare regex="include:(\\w*.swift)"
+declare file_content=$( cat "${file}" )
+declare modulePath=$( find $HOME -name "swiftModules" )
+
+for word in $file_content
+    do
+    [[ $word =~ $regex ]]
+        if [[ ${BASH_REMATCH[0]} ]]
+        then
+            match="${BASH_REMATCH[0]}"
+            # creates extension to build command to include modules
+            filepath="$modulePath/${match#"include:"}"
+            #echo $filepath
+            # if file not found, display an error and exit
+            [ ! -f "$filepath" ] && { echo "ERROR: module - ${match#"include:"} - file not found."; echo "Build Failed"; exit 2; }
+            includes="$includes$modulePath/${match#"include:"} "
+            echo  - Adding module - ${match#"include:"}
+        fi
+done
+echo
+echo "Generating build command"
+echo "Starting Build Process"
+# build commands
+rm -rf build && mkdir build
+cp $file ./build/main.swift
+swiftc -o ${file%"swift"}swapp ./build/main.swift $includes
+rm -rf build
+# check for sucessful file creation
+if [ -e "${file%"swift"}swapp" ];
+then
+    echo "Build Finished"
+else
+    echo "Build Failed"
+fi
+echo
+# end
