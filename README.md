@@ -53,9 +53,3 @@ To use a module file with swift-lite-build add the following meta tags.
 NOTE: There must only be one "swiftModules" directory.
 
 
-
-
-For more information go to http://swift-lite.org
-
-For installation and code tutorials go to https://www.hackster.io/futurejones 
-
