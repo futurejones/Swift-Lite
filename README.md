@@ -19,6 +19,28 @@ Swift-Lite is a super lean version of Swift built for small arm SBC's like the R
 
 Swift-Lite is built from the official repo on Swift.org. It includes Foundation, Dispatch and all the main core features of Swift. What it doesn't include are the Swift add-ons such as Package Manager, REPL, LLDB and XCTest.
 
+### What is swift-lite-build
+swift-lite-build is a simple bash script thats first, scans the swift project file for module dependencies, and then creates a custom swiftc build command to build the project. swift-lite-build is able to do this by including meta tags in the swift project and module files.
+
+#### The Project File
+To use a project file with swift-lite-build add the following meta tags.
+
+``` some code ```
+
+#### The Project File
+To use a module file with swift-lite-build add the following meta tags.
+
+``` some code ```
+
+#### File Location
+ - Project files can be located in any directory located in the "/home/user/" directory.
+ - Module files must be located in a directory named "swiftModules". "swiftModules" can be located in any directory located in the "/home/user/" directory. 
+ 
+NOTE: There must only be one "swiftModules" directory.
+
+
+
+
 For more information go to http://swift-lite.org
 
 For installation and code tutorials go to https://www.hackster.io/futurejones 
