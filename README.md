@@ -25,6 +25,7 @@ Swift-Lite is built from the official repo on Swift.org. It includes Foundation,
 
 ### What is swift-lite-build
 <img src="https://img.shields.io/badge/Swift%20Lite%20Build-Linux-green.svg" />
+
 swift-lite-build is a simple bash script that first, scans the swift project file for module dependencies, and then creates a custom swiftc build command to build the project. swift-lite-build is able to do this by scanning the included meta tags in the swift project and module files.
 
 #### The Project File
