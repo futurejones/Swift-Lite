@@ -25,12 +25,20 @@ swift-lite-build is a simple bash script thats first, scans the swift project fi
 #### The Project File
 To use a project file with swift-lite-build add the following meta tags.
 
-``` some code ```
+``` 
+// name:helloworld
+// type:project
+// include:numbers.swift
+// include:date.swift
+```
 
-#### The Project File
+#### The Module File
 To use a module file with swift-lite-build add the following meta tags.
 
-``` some code ```
+``` 
+// name:numbers
+// type:module
+```
 
 #### File Location
  - Project files can be located in any directory located in the "/home/user/" directory.
