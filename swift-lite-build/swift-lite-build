@@ -14,13 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-usage="swift-lite-build [--help|-h] [--version|-V] [Usage: swift-lite-build filename]"
-version="swift-lite-build 2.0.6"
+usage="swift-lite-build [--help|-h] [--version|-V] [--test|-t]\n
+[\e[38;5;11mUsage:\e[m swift-lite-build <filename>] = build executable\n
+[\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test] = build and run executable"
+version="swift-lite-build 2.0.7"
+
+declare test=false
 
 for i ; do
     case "$i" in
-        --help|-h) echo ${usage}; exit 0 ;;
+        --help|-h) echo -e ${usage}; exit 0 ;;
         --version|-V) echo ${version}; exit 0 ;;
+        --test|-t) test=true;
     esac
 done
 
@@ -29,7 +34,7 @@ declare includes=""
 
 # if filename not supplied at the command prompt
 # display usage message and exit
-[ $# -eq 0 ] && { echo "Usage: swift-lite-build filename"; exit 1; }
+[ $# -eq 0 ] && { echo "Usage: swift-lite-build <filename>"; exit 1; }
 
 # if file not found, display an error and exit
 [ ! -f "$file" ] && { echo "ERROR: $_file file not found."; exit 2; }
@@ -60,21 +65,33 @@ for word in $file_content
             # if file not found, display an error and exit
             [ ! -f "$filepath" ] && { echo "ERROR: module - ${match#"include:"} - file not found."; echo "Build Failed"; exit 2; }
             includes="$includes$modulePath/${match#"include:"} "
-            echo  - Adding module - ${match#"include:"}
+            echo -e " - Adding module -\e[38;5;11m ${match#"include:"}\e[m"
         fi
 done
 echo
 echo "Generating build command"
 echo "Starting Build Process"
 # build commands
+filename=${file%"swift"}swapp
+
 rm -rf build && mkdir build
 cp $file ./build/main.swift
-swiftc -o ${file%"swift"}swapp ./build/main.swift $includes
+swiftc -o $filename ./build/main.swift $includes
 rm -rf build
+
 # check for sucessful file creation
-if [ -e "${file%"swift"}swapp" ];
+if [ -e "$filename" ];
 then
     echo "Build Finished"
+    echo -e "run\e[38;5;11m ./$filename\e[m to execute app"
+    if [ "$test" = true ] ;
+    then
+        echo
+        echo "<=-------------------------=>"
+        echo -e "          \e[38;5;2mTesting\e[m           "
+        echo
+        ./$filename
+    fi
 else
     echo "Build Failed"
 fi
