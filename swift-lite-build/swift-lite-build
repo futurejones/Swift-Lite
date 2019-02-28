@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-usage="swift-lite-build [--help|-h] [--version|-V] [--test|-t] [--sudo|-s]\n
+usage="swift-lite-build [--help|-h] [--version|-v] [--test|-t] [--sudo|-s]\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename>] = build executable\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test] = build and run executable\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test --sudo] = build and run executable with sudo"
@@ -27,7 +27,7 @@ declare gpio=false
 for i ; do
     case "$i" in
         --help|-h) echo -e ${usage}; exit 0 ;;
-        --version|-V) echo ${version}; exit 0 ;;
+        --version|-v) echo ${version}; exit 0 ;;
         --test|-t) test=true;;
         --sudo|-s) sudo=true;;
     esac
