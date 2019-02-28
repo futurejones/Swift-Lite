@@ -14,18 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-usage="swift-lite-build [--help|-h] [--version|-V] [--test|-t]\n
+usage="swift-lite-build [--help|-h] [--version|-V] [--test|-t] [--sudo|-s]\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename>] = build executable\n
-[\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test] = build and run executable"
+[\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test] = build and run executable\n
+[\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test --sudo] = build and run executable with sudo"
 version="swift-lite-build 2.0.7"
 
 declare test=false
+declare sudo=false
+declare gpio=false
 
 for i ; do
     case "$i" in
         --help|-h) echo -e ${usage}; exit 0 ;;
         --version|-V) echo ${version}; exit 0 ;;
-        --test|-t) test=true;
+        --test|-t) test=true;;
+        --sudo|-s) sudo=true;;
     esac
 done
 
@@ -76,6 +80,7 @@ filename=${file%"swift"}swapp
 
 rm -rf build && mkdir build
 cp $file ./build/main.swift
+# ***** add link to Swift4GPIO if gpio=true *****
 swiftc -o $filename ./build/main.swift $includes
 rm -rf build
 
@@ -90,7 +95,12 @@ then
         echo "<=-------------------------=>"
         echo -e "          \e[38;5;2mTesting\e[m           "
         echo
-        ./$filename
+        if [ "$sudo" = true ] ;
+        then
+            sudo ./$filename
+        else
+            ./$filename
+        fi
     fi
 else
     echo "Build Failed"

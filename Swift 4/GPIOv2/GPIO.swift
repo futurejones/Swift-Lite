@@ -1,10 +1,8 @@
-// Swift GPIO for Swift 4
+// GPIO for Swift 4
 // Based on SwiftyGPIO by @uraimo https://github.com/uraimo/SwiftyGPIO
 // A Swift-Lite module file
 // type:module
-// name:swift4GPIO
-
-
+// name:GPIO.swift
 
 import Foundation
 import Glibc
@@ -19,23 +17,40 @@ func shell(command: String) {
     task.waitUntilExit()
 }
 
-func autoDetectBoardType() -> [GPIOName:GPIO]{
+public func checkBoardType() {
+    shell(command: "cp -f /proc/cpuinfo /tmp/cpu.txt")
+    let path = "/tmp/cpu.txt"
+    print(try! String(contentsOfFile: path, encoding: String.Encoding.ascii))
+}
+
+public func autoDetectBoardType() -> [GPIOName:GPIO]{
     // set default board type to Pi2/3
     var boardType = PiCodeGPIO.RPI2
+
     shell(command: "cp -f /proc/cpuinfo /tmp/cpu.txt")
     let path = "/tmp/cpu.txt"
     var fileContents:String = ""
+
     let filemgr = FileManager.default
 
     if filemgr.fileExists(atPath: path) {
         fileContents = try! String(contentsOfFile: path, encoding: String.Encoding.ascii)
+        let RPi23 = ["9020e0", "a01040", "a01041", "a02082", "a020d3", "a21041", "a22042", "a22082", "a32082", "a52082"] // add remaining boards
+        let RPi0 = ["0010", "0012", "0013", "0015", "900021", "900032", "900092", "900093", "9000c1", "920092", "920093"] // add remaining boards
+        let RPi1v2 = ["0005", "0006", "0007", "0008", "0009", "000d", "000e", "000f"] // add remaining boards
+        let RPi1v1 = ["0002", "0003", "0004"] // add remaining boards
 
-        if fileContents.contains("BCM2709") {
+        if RPi23.contains(where: fileContents.contains) {
             boardType = PiCodeGPIO.RPI2
             return boardType
-        } else if fileContents.contains("BCM2708") {
-            // sometimes returns BCM2385 on Pi Zero W
+        } else if RPi0.contains(where: fileContents.contains) {
             boardType = PiCodeGPIO.RPIPlusZERO
+            return boardType
+        } else if RPi1v2.contains(where: fileContents.contains) {
+            boardType = PiCodeGPIO.RPIRev2
+            return boardType
+        } else if RPi1v1.contains(where: fileContents.contains) {
+            boardType = PiCodeGPIO.RPIRev1
             return boardType
         } else {
             // return default
@@ -226,7 +241,7 @@ extension GPIO {
             fclose(fp)
             buf[len-1]=0
             res = String(cString: buf)
-            buf.deallocate(capacity: MAXLEN)
+            buf.deallocate()
         }
         return res
     }
