@@ -18,7 +18,7 @@ usage="swift-lite-build [--help|-h] [--version|-V] [--test|-t] [--sudo|-s]\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename>] = build executable\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test] = build and run executable\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test --sudo] = build and run executable with sudo"
-version="swift-lite-build 2.0.7"
+version="swift-lite-build 2.0.8"
 
 declare test=false
 declare sudo=false
@@ -80,8 +80,15 @@ filename=${file%"swift"}swapp
 
 rm -rf build && mkdir build
 cp $file ./build/main.swift
-# ***** add link to Swift4GPIO if gpio=true *****
-swiftc -o $filename ./build/main.swift $includes
+# ***** add link to GPIO if gpio=true ***** //  -I /usr/lib/ -L /usr/lib/ -lGPIO
+# check for gpio
+if [ -e "/usr/lib/libGPIO.so" ];
+then
+gpio="-I /usr/lib/ -L /usr/lib/ -lGPIO"
+else
+gpio=""
+fi
+swiftc -o $filename ./build/main.swift $includes $gpio
 rm -rf build
 
 # check for sucessful file creation
