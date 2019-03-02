@@ -2,7 +2,7 @@
 <a href="https://github.com/futurejones/Swift-Lite-Samples/blob/master/LICENSE.md"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
 
 ## Swift 4
-<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift%204-compatible-orange.svg" /></a>&nbsp;&nbsp;<a href="https://raspberrypi.org"><img src="https://img.shields.io/badge/Raspberry%20Pi-2%20and%203-green.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Stretch-green.svg" /></a>&nbsp;&nbsp;
+<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift%204-compatible-orange.svg" /></a>&nbsp;&nbsp;<a href="https://raspberrypi.org"><img src="https://img.shields.io/badge/Raspberry%20Pi-all models-red.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Stretch-green.svg" /></a>&nbsp;&nbsp;
 
 ### Sample Project and Module files for Swift-Lite
 #### Projects
@@ -53,4 +53,10 @@ To use a module file with swift-lite-build add the following meta tags.
  
 NOTE: There must only be one "swiftModules" directory.
 
+#### 3rd Party Libraries
+swift-lite-build now allows you to auto add pre-built swift libraries such as the GPIO libraries.
+Swift libraries are added to the default `/usr/lib` directory and can be used in a project by adding an "import" statement.
+```
+import GPIO
+```
 
