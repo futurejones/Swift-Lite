@@ -1,7 +1,6 @@
 # Swift-Lite Samples and Tests
 <a href="https://github.com/futurejones/Swift-Lite-Samples/blob/master/LICENSE.md"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License: MIT" /></a>
-## Swift 3
-<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift%203-compatible-orange.svg" /></a>&nbsp;&nbsp;<a href="https://raspberrypi.org"><img src="https://img.shields.io/badge/Raspberry%20Pi-All%20Models-green.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Jessie-green.svg" /></a>&nbsp;&nbsp;
+
 ## Swift 4
 <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift%204-compatible-orange.svg" /></a>&nbsp;&nbsp;<a href="https://raspberrypi.org"><img src="https://img.shields.io/badge/Raspberry%20Pi-2%20and%203-green.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Stretch-green.svg" /></a>&nbsp;&nbsp;
 
@@ -15,7 +14,7 @@
 #### Modules
 * Date - Returns the current date in full style
 * Time - Uses DispatchTime to insert wait time - Usage similar to usleep/sleep
-* Shell - Run terminal shell commands
+* Command - Run terminal shell commands
 * GPIO - Access and control the GPIO pins - Features auto board type detect for all 40 pin Raspberry Pi's
 
 ### What is Swift-Lite?
