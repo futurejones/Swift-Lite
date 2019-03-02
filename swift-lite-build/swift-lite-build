@@ -14,11 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+start=$SECONDS
+
 usage="swift-lite-build [--help|-h] [--version|-v] [--test|-t] [--sudo|-s]\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename>] = build executable\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test] = build and run executable\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test --sudo] = build and run executable with sudo"
-version="swift-lite-build 2.0.8"
+version="swift-lite-build 3.0-dev"
 
 declare test=false
 declare sudo=false
@@ -50,16 +52,34 @@ declare includes=""
 echo
 echo "Processing $file..."
 
-# scan file for included modules
+# scan file for included modules and library imports
 echo
-echo "Scanning project for modules"
-declare regex="include:(\\w*.swift)"
+echo "Scanning project for modules and libraries"
+declare module="include:(\\w*.swift)"
+declare import="import (\\w*)"
 declare file_content=$( cat "${file}" )
 declare modulePath=$( find $HOME -name "swiftModules" )
 
-for word in $file_content
+while IFS= read -r line
     do
-    [[ $word =~ $regex ]]
+    #echo $line
+    [[ $line =~ $import ]]
+        if [[ ${BASH_REMATCH[0]} ]]
+        then
+            match="${BASH_REMATCH[0]}"
+            #echo $match
+            # creates extension to build command to include libraries
+            # check if Swift Standard Library - Foundation Glibc Dispatch
+            library=${match#"import "}
+            #echo $library
+            if [[ "$library" != "Foundation" ]] && [[ "$library" != "Glibc" ]] && [[ "$library" != "Dispatch" ]]
+            then
+                echo -e " - Adding library -\e[38;5;11m ${match#"import "}\e[m"
+                libraries="$libraries-l${match#"import "} "
+                #echo $libraries
+            fi
+        fi
+        [[ $line =~ $module ]]
         if [[ ${BASH_REMATCH[0]} ]]
         then
             match="${BASH_REMATCH[0]}"
@@ -71,7 +91,13 @@ for word in $file_content
             includes="$includes$modulePath/${match#"include:"} "
             echo -e " - Adding module -\e[38;5;11m ${match#"include:"}\e[m"
         fi
-done
+done <<< "$file_content"
+
+if [[ "$libraries" != "" ]]
+then
+    libraries="-I /usr/lib/ -L /usr/lib/ $libraries"
+fi
+
 echo
 echo "Generating build command"
 echo "Starting Build Process"
@@ -80,19 +106,14 @@ filename=${file%"swift"}swapp
 
 rm -rf build && mkdir build
 cp $file ./build/main.swift
-# ***** add link to GPIO if gpio=true ***** //  -I /usr/lib/ -L /usr/lib/ -lGPIO
-# check for gpio
-if [ -e "/usr/lib/libGPIO.so" ];
-then
-gpio="-I /usr/lib/ -L /usr/lib/ -lGPIO"
-else
-gpio=""
-fi
-swiftc -o $filename ./build/main.swift $includes $gpio
+
+# check outputed build command
+#echo swiftc -o $filename ./build/main.swift $includes $libraries
+swiftc -o $filename ./build/main.swift $includes $libraries
 rm -rf build
 
 # check for sucessful file creation
-if [ -e "$filename" ];
+if [[ -e "$filename" ]]
 then
     echo "Build Finished"
     echo -e "run\e[38;5;11m ./$filename\e[m to execute app"
@@ -109,6 +130,9 @@ then
             ./$filename
         fi
     fi
+    end=$SECONDS
+    duration=$(( end - start ))
+    echo "build time = $duration seconds"
 else
     echo "Build Failed"
 fi
