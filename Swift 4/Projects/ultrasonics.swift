@@ -3,18 +3,14 @@
 // type:project
 // name:ultrasonics
 // include:time.swift
-// include:swift4GPIO.swift
 
 import Glibc
 import Foundation
 import Dispatch
+import GPIO
 
 // auto detect board type (detects all boards with 40 GPIO pins)
 let gpios = autoDetectBoardType()
-
-// for older boards with 26 GPIO pins please set board type manually
-//let gpios = PiCodeGPIO.RPIPlusZERO
-//let gpios = PiCodeGPIO.RPIRev2
 
 // set trigger pin
 var gp_trigger = gpios[.P9]!
