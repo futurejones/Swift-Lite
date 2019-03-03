@@ -47,8 +47,8 @@ To use a module file with swift-lite-build add the following meta tags.
 ```
 
 #### File Location
- - Project files can be located in any directory located in the "/home/user/" directory.
- - Module files must be located in a directory named "swiftModules". "swiftModules" can be located in any directory located in the "/home/user/" directory. 
+ - Project files can be located in any directory located in the `/home/user/` directory.
+ - Module files must be located in a directory named `swiftModules`. `swiftModules` can be located in any directory located in the `/home/user/` directory. 
  
 NOTE: There must only be one "swiftModules" directory.
 
