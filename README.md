@@ -26,7 +26,7 @@ Not included are the Swift add-ons such as Package Manager, REPL, LLDB and XCTes
 ### What is swift-lite-build
 <img src="https://img.shields.io/badge/Swift%20Lite%20Build-Linux-green.svg" />
 
-swift-lite-build is a build utility that scans the swift project file for module and library dependencies and creates a custom swift build command to build the project. swift-lite-build does this by scanning the included meta tags and import statements in the swift project file.
+`swift-lite-build` is a build utility that scans the swift project file for module and library dependencies and creates a custom swift build command to build the project. `swift-lite-build` does this by scanning the included meta tags and import statements in the swift project file.
 
 #### The Project File
 To use a project file with swift-lite-build add the following meta tags.
@@ -53,7 +53,7 @@ To use a module file with swift-lite-build add the following meta tags.
 NOTE: There must only be one "swiftModules" directory.
 
 #### 3rd Party Libraries
-swift-lite-build also allows you to auto add pre-built swift libraries such as the GPIO libraries.
+`swift-lite-build` also allows you to auto add pre-built swift libraries such as the GPIO libraries.
 Swift libraries are added to the default `/usr/lib` directory and can be used in a project by adding an "import" statement.
 ```
 import GPIO
