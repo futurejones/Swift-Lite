@@ -48,6 +48,7 @@ func hello() {
 * Add the following code and save the file  
 ```
 // include:print.swift
+
 hello()
 ```
 * The first line adds `print.swift` as a dependency and the second calls the `hello()` function from the `print.swift` module.
