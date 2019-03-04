@@ -1,9 +1,0 @@
-Package: myLibrary
-Architecture: all
-Maintainer: My Name me@email.com
-Priority: optional
-Version: 0.1-beta
-Homepage: http://www.mySite.com
-Description: A Swift Library
- More info at .....
- and more .....
