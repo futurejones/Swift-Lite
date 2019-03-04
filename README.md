@@ -3,6 +3,7 @@
 <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-4.2.2-orange.svg" /></a>&nbsp;&nbsp;<a href="https://raspberrypi.org"><img src="https://img.shields.io/badge/Raspberry%20Pi-all models-red.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Stretch-green.svg" /></a>&nbsp;&nbsp;
 
 ### Sample Project, Module and Library files for Swift-Lite
+#### [Quick Start Guide](/docs/getting-started.md)
 #### Projects
 * Helloworld
 * Flash LED Basic
