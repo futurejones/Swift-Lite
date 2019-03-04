@@ -12,13 +12,15 @@
 `add here`
 * Install Swift-Lite Raspberry Pi Edition  
 `add here`
-* Test `swift --version`  
-```  
+* Test swift install
+```
+swift --version
 Swift version 4.2.2 (swift-4.2.2-RELEASE)
 Target: armv6-unknown-linux-gnueabihf
-```  
-* Test `swift-lite-build --version`  
 ```
+* Test swift-lite-build install
+```
+swift-lite-build --version
 swift-lite-build 3.0
 ```
 
