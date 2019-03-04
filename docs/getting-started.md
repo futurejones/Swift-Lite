@@ -45,13 +45,12 @@ func hello() {
 `cd swiftProjects`
 * Create a file called "helloWorld.swift" and open it your favorite text editor.  
 `nano helloWorld.swift`
-* Add the following code  
+* Add the following code and save the file  
 ```
 // include:print.swift
 
 hello()
 ```
-
 * The first line adds `print.swift` as a dependency and the second calls the `hello()` function from the `print.swift` module.
 * Next build the project using the --test flag  
 `swift-lite-build helloWorld.swift --test`  
