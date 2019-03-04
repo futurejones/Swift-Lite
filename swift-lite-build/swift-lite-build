@@ -57,31 +57,20 @@ echo
 echo "Scanning project for modules and libraries"
 declare module="include:(\\w*.swift)"
 declare import="import (\\w*)"
+declare comment="//.*$"
 declare file_content=$( cat "${file}" )
 declare modulePath=$( find $HOME -name "swiftModules" )
 
 while IFS= read -r line
     do
     #echo $line
-    [[ $line =~ $import ]]
+    [[ $line =~ $comment ]]
         if [[ ${BASH_REMATCH[0]} ]]
         then
-            match="${BASH_REMATCH[0]}"
-            #echo $match
-            # creates extension to build command to include libraries
-            # check if Swift Standard Library - Foundation Glibc Dispatch
-            library=${match#"import "}
-            #echo $library
-            if [[ "$library" != "Foundation" ]] && [[ "$library" != "Glibc" ]] && [[ "$library" != "Dispatch" ]]
+            echo "is a comment - process include"
+            [[ $line =~ $module ]]
+            if [[ ${BASH_REMATCH[0]} ]]
             then
-                echo -e " - Adding library -\e[38;5;11m ${match#"import "}\e[m"
-                libraries="$libraries-l${match#"import "} "
-                #echo $libraries
-            fi
-        fi
-        [[ $line =~ $module ]]
-        if [[ ${BASH_REMATCH[0]} ]]
-        then
             match="${BASH_REMATCH[0]}"
             # creates extension to build command to include modules
             filepath="$modulePath/${match#"include:"}"
@@ -90,7 +79,27 @@ while IFS= read -r line
             [ ! -f "$filepath" ] && { echo "ERROR: module - ${match#"include:"} - file not found."; echo "Build Failed"; exit 2; }
             includes="$includes$modulePath/${match#"include:"} "
             echo -e " - Adding module -\e[38;5;11m ${match#"include:"}\e[m"
+            fi
+        else
+            echo "not a comment - process import"
+            [[ $line =~ $import ]]
+            if [[ ${BASH_REMATCH[0]} ]]
+            then
+                match="${BASH_REMATCH[0]}"
+                #echo $match
+                # creates extension to build command to include libraries
+                # check if Swift Standard Library - Foundation Glibc Dispatch
+                library=${match#"import "}
+                #echo $library
+                if [[ "$library" != "Foundation" ]] && [[ "$library" != "Glibc" ]] && [[ "$library" != "Dispatch" ]]
+                then
+                    echo -e " - Adding library -\e[38;5;11m ${match#"import "}\e[m"
+                    libraries="$libraries-l${match#"import "} "
+                    #echo $libraries
+                fi
+            fi
         fi
+
 done <<< "$file_content"
 
 if [[ "$libraries" != "" ]]
@@ -132,6 +141,7 @@ then
     fi
     end=$SECONDS
     duration=$(( end - start ))
+    echo
     echo "build time = $duration seconds"
 else
     echo "Build Failed"
