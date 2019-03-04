@@ -2,5 +2,6 @@
 ## Prerequisites
 * Raspberry Pi 
 * Latest Raspbian Stretch installed  
-*For details on how to setup your Raspberry Pi please go to raspberrypi.org* 
+*For details on how to setup your Raspberry Pi please go to raspberrypi.org*
+
 ## Step 1
