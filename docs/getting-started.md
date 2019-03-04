@@ -54,16 +54,20 @@ hello()
 * Next build the project using the --test flag  
 `swift-lite-build helloWorld.swift --test`  
 You should see the following result  
-````
-Processing helloWorld.swift...
-Scanning project for modules and libraries
- - Adding module - print.swift
-Generating build command
-Starting Build Process
-Build Finished
-run ./helloWorld.swapp to execute app
-<=-------------------------=>
-          Testing           
-Hello World
-````  
+<code>
+Processing helloWorld.swift...  
+  
+  Scanning project for modules and libraries  
+\- Adding module - print.swift  
+   
+  Generating build command  
+Starting Build Process  
+Build Finished  
+run ./helloWorld.swapp to execute app  
+  
+  <=-------------------------=>  
+            Testing             
+
+  Hello World
+</code>  
 *You are now set up and ready to code with Swift on your Raspberry Pi!*
