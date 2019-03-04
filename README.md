@@ -2,8 +2,22 @@
 
 <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-4.2.2-orange.svg" /></a>&nbsp;&nbsp;<a href="https://raspberrypi.org"><img src="https://img.shields.io/badge/Raspberry%20Pi-all models-red.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Stretch-green.svg" /></a>&nbsp;&nbsp;
 
-### Sample Project, Module and Library files for Swift-Lite
+### What is Swift-Lite?
+Swift-Lite is a super lean version of Swift built for small arm SBC's like the Raspberry Pi running the Debian based Linux OS Raspbian. Swift-Lite uses meta-tags combined with the pre-build processor to make constructing a multi-file Swift project with Module and Library dependancies simple and easy. Swift Modules can be used in much the same way you would use a Framework or a Library.
+
+Swift-Lite is built from the official repo on Swift.org. It includes Foundation, Dispatch and all the main core libraries of Swift.  
+Not included are the Swift add-ons such as Package Manager, REPL, LLDB and XCTest.  
+This results in a greatly reduced download and install size from 140MB/725MB to 44MB/240MB but without reducing or compromising the core functionality of the Swift language.
+
+### Swift-Lite Raspberry Pi Edition
+Swift-Lite Raspberry Pi Edition is a special Swift-Lite universal install for all Raspberry Pi models running Raspbian Stretch. Swift-Lite RPE includes the GPIO library so you can access and control the RPi GPIO pins without having to install any additional software.
+Simply add `import GPIO` to your Swift project file.  
+Swift-Lite RPE is cross compatible over all Raspberry Pi models. This means that a Swift executable that is built on the Raspberry Pi 3 will work on the Raspberry Pi Zero/A+/2 etc including GPIO support.
+
 #### [Quick Start Guide](/docs/getting-started.md)
+
+### Sample Project, Module and Library files for Swift-Lite
+
 #### Projects
 * Helloworld
 * Flash LED Basic
@@ -22,16 +36,11 @@
 
 #### [Getting Started with Libraries](/docs/using-libraries.md)
 
-### What is Swift-Lite?
-Swift-Lite is a super lean version of Swift built for small arm SBC's like the Raspberry Pi running the Debian based Linux OS Raspbian. Swift-Lite uses meta-tags combined with the pre-build processor to make constructing a multi-file Swift project with Module and Library dependancies easy and simple. Swift Modules can be used in much the same way you would use a Framework or a Library.
-
-Swift-Lite is built from the official repo on Swift.org. It includes Foundation, Dispatch and all the main core libraries of Swift.  
-Not included are the Swift add-ons such as Package Manager, REPL, LLDB and XCTest.
-
 ### What is swift-lite-build
 <img src="https://img.shields.io/badge/Swift%20Lite%20Build-Linux-green.svg" />
 
-`swift-lite-build` is a build utility that scans the swift project file for module and library dependencies and creates a custom swift build command to build the project. `swift-lite-build` does this by scanning the included meta tags and import statements in the swift project file.
+`swift-lite-build` is a build utility that scans the swift project file for module and library dependencies and creates a custom swift build command to build the project. `swift-lite-build` does this by scanning the included meta tags and import statements in the swift project file.  
+`swift-lite-build` can be installed and used on any system or platform that has Swift installed on it.
 
 #### The Project File
 To use a project file with swift-lite-build add the following meta tags.
