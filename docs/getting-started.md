@@ -54,10 +54,12 @@ hello()
 * Next build the project using the --test flag  
 `swift-lite-build helloWorld.swift --test`  
 You should see the following result  
-```  
+```
 Processing helloWorld.swift...
+
 Scanning project for modules and libraries
- - Adding module - print.swift 
+- Adding module - print.swift
+
 Generating build command
 Starting Build Process
 Build Finished
