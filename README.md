@@ -14,11 +14,13 @@
 * Date - Returns the current date in full style
 * Time - Uses DispatchTime to insert wait time - Usage similar to usleep/sleep
 * Command - Run terminal shell commands
-##### [Getting Started with Modules](/docs/using-modules.md)
+
+#### [Getting Started with Modules](/docs/using-modules.md)
 
 #### Libraries
 * GPIO - Access and control the GPIO pins - Features auto board type detect for all Raspberry Pi's
-##### [Getting Started with Libraries](/docs/using-libraries.md)
+
+#### [Getting Started with Libraries](/docs/using-libraries.md)
 
 ### What is Swift-Lite?
 Swift-Lite is a super lean version of Swift built for small arm SBC's like the Raspberry Pi running the Debian based Linux OS Raspbian. Swift-Lite uses meta-tags combined with the pre-build processor to make constructing a multi-file Swift project with Module and Library dependancies easy and simple. Swift Modules can be used in much the same way you would use a Framework or a Library.
