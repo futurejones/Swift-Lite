@@ -11,7 +11,7 @@
 * Add Swift-Lite repository  
 `curl -s https://packagecloud.io/install/repositories/swift-arm/swift-lite/script.deb.sh | sudo bash`
 * Install Swift-Lite Raspberry Pi Edition  
-`sudo apt-get install swift-lite4rpi01=4.2.2-gpio-v3-dev`
+`sudo apt-get install swift-lite-rpi`
 * Test swift install
 ```
 swift --version
