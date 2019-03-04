@@ -25,7 +25,49 @@ swift-lite-build 3.0
 ```
 
 ## Setup Project and Modules Directories
-* Create Projects directory  
+* Create the Projects directory  
 `mkdir swiftProjects`
-* Create Modules directory  
+* Create the Modules directory  
 `mkdir swiftModules`
+
+## A Quick Hello World
+* Open the swiftModules directory  
+`cd swiftModules`
+* Create a file called "print.swift" and open it your favorite text editor.  
+`nano print.swift`
+* Add a simple function and save the file  
+```
+func hello() {
+    print("Hello World")
+}
+```
+* Open the swiftProject directory  
+`cd swiftProjects`
+* Create a file called "helloWorld.swift" and open it your favorite text editor.  
+`nano helloWorld.swift`
+* Add the following code
+```
+// include:print.swift
+
+hello()
+```  
+The first line adds `print.swift` as a dependency and the second calls the `hello()` function from the `print.swift` module.
+* Next build the project using the --test flag  
+`swift-lite-build helloWorld.swift --test`  
+You should see the following result  
+```
+Processing helloWorld.swift...
+
+Scanning project for modules and libraries
+ - Adding module - print.swift
+
+Generating build command
+Starting Build Process
+Build Finished
+run ./helloWorld.swapp to execute app
+
+<=-------------------------=>
+          Testing           
+
+Hello World
+```
