@@ -51,7 +51,7 @@ func hello() {
 
 hello()
 ```  
-The first line adds `print.swift` as a dependency and the second calls the `hello()` function from the `print.swift` module.
+* The first line adds `print.swift` as a dependency and the second calls the `hello()` function from the `print.swift` module.
 * Next build the project using the --test flag  
 `swift-lite-build helloWorld.swift --test`  
 You should see the following result  
