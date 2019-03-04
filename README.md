@@ -2,6 +2,13 @@
 
 <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-4.2.2-orange.svg" /></a>&nbsp;&nbsp;<a href="https://raspberrypi.org"><img src="https://img.shields.io/badge/Raspberry%20Pi-all models-red.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Stretch-green.svg" /></a>&nbsp;&nbsp;
 
+### What is Swift-Lite?
+Swift-Lite is a super lean version of Swift built for small arm SBC's like the Raspberry Pi running the Debian based Linux OS Raspbian. Swift-Lite uses meta-tags combined with the pre-build processor to make constructing a multi-file Swift project with Module and Library dependancies simple and easy. Swift Modules can be used in much the same way you would use a Framework or a Library.
+
+Swift-Lite is built from the official repo on Swift.org. It includes Foundation, Dispatch and all the main core libraries of Swift.  
+Not included are the Swift add-ons such as Package Manager, REPL, LLDB and XCTest.  
+This results in a greatly reduced download and install size from 140MB/725MB to 44MB/240MB but without reducing or compromising the core functionality of the Swift language.
+
 ### Sample Project, Module and Library files for Swift-Lite
 #### [Quick Start Guide](/docs/getting-started.md)
 #### Projects
@@ -21,12 +28,6 @@
 * GPIO - Access and control the GPIO pins - Features auto board type detect for all Raspberry Pi's
 
 #### [Getting Started with Libraries](/docs/using-libraries.md)
-
-### What is Swift-Lite?
-Swift-Lite is a super lean version of Swift built for small arm SBC's like the Raspberry Pi running the Debian based Linux OS Raspbian. Swift-Lite uses meta-tags combined with the pre-build processor to make constructing a multi-file Swift project with Module and Library dependancies easy and simple. Swift Modules can be used in much the same way you would use a Framework or a Library.
-
-Swift-Lite is built from the official repo on Swift.org. It includes Foundation, Dispatch and all the main core libraries of Swift.  
-Not included are the Swift add-ons such as Package Manager, REPL, LLDB and XCTest.
 
 ### What is swift-lite-build
 <img src="https://img.shields.io/badge/Swift%20Lite%20Build-Linux-green.svg" />
