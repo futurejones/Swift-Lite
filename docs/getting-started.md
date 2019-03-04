@@ -9,9 +9,9 @@
 * Update Raspbian  
 `sudo apt-get update`
 * Add Swift-Lite repository  
-`add here`
+`curl -s https://packagecloud.io/install/repositories/swift-arm/swift-lite/script.deb.sh | sudo bash`
 * Install Swift-Lite Raspberry Pi Edition  
-`add here`
+`sudo apt-get install swift-lite4rpi01=4.2.2-gpio-v3-dev`
 * Test swift install
 ```
 swift --version
