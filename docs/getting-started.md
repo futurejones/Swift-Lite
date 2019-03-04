@@ -45,7 +45,7 @@ func hello() {
 `cd swiftProjects`
 * Create a file called "helloWorld.swift" and open it your favorite text editor.  
 `nano helloWorld.swift`
-* Add the following code
+* Add the following code  
 ```
 // include:print.swift
 
