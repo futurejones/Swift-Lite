@@ -73,4 +73,6 @@ run ./helloWorld.swapp to execute app
           Testing           
 
 Hello World
-```
+```  
+  
+  *You are now set up and ready to code with Swift on your Raspberry Pi!*
