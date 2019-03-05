@@ -31,6 +31,7 @@ for i ; do
         --version|-v) echo ${version}; exit 0 ;;
         --test|-t) test=true;;
         --sudo|-s) sudo=true;;
+        --*|-*) echo "unknown command"; exit 0 ;;
     esac
 done
 
