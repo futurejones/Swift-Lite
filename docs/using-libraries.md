@@ -20,7 +20,18 @@
 * `sudo dpkg -i myLibrary.deb` or `sudo dpkg --install myLibrary.deb`
 
 ## Usage Instruction
-* add `import MyLibrary` to your project file.
+* add `import MyLibrary` to your project file.  
+```
+// Swift-Lite Module / Library Test
+// type:project
+// name:test.swift
+
+import MyLibrary
+
+hello()
+today()
+printNumbers()
+```
 
 ## Uninstall / Remove
 * `dpkg -r myLibrary` or `dpkg --remove myLibrary`
