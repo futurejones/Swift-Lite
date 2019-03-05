@@ -22,15 +22,15 @@
 ## Usage Instruction
 * add `import MyLibrary` to your project file.  
 ```
-// Swift-Lite Module / Library Test
-// type:project
-// name:test.swift
-
-import MyLibrary
-
-hello()
-today()
-printNumbers()
+| // Swift-Lite Module / Library Test
+| // type:project
+| // name:test.swift
+|
+| import MyLibrary
+|
+| hello()
+| today()
+| printNumbers()
 ```
 
 ## Uninstall / Remove
