@@ -60,6 +60,7 @@ declare import="import (\\w*)"
 declare comment="//.*$"
 declare file_content=$( cat "${file}" )
 declare modulePath=$( find $HOME -name "swiftModules" )
+declare -i lNum=40 # set the number of lines to scan
 
 while IFS= read -r line
     do
@@ -92,6 +93,12 @@ while IFS= read -r line
                 fi
             fi
         fi
+    lNum=$lNum-1
+    #echo $lNum
+    if [[ $lNum -le 0 ]]
+    then
+        break
+    fi
 done <<< "$file_content"
 
 if [[ "$libraries" != "" ]]
