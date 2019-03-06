@@ -34,6 +34,7 @@ Swift-Lite RPE is cross compatible over all Raspberry Pi models. This means that
 #### Libraries
 * GPIO - Access and control the GPIO pins - Features auto board type detect for all Raspberry Pi's
 
+#### [Using GPIO](/docs/using-gpio.md)
 #### [Getting Started with Libraries](/docs/using-libraries.md)
 
 ### What is swift-lite-build
