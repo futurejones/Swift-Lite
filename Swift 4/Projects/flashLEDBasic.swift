@@ -2,16 +2,12 @@
 // A Swift-Lite project file
 // type:project
 // name:flashLEDBasic
-// include:swift4GPIO.swift
 
 import Glibc
+import GPIO
 
-// auto detect board type (detects all boards with 40 GPIO pins)
+// auto detect board type
 let gpios = autoDetectBoardType()
-
-// for older boards with 26 GPIO pins please set board type manually
-//let gpios = PiCodeGPIO.RPIRev1
-//let gpios = PiCodeGPIO.RPIRev2
 
 // set output pin
 var gp = gpios[.P17]!

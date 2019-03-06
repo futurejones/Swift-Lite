@@ -2,16 +2,12 @@
 // A Swift-Lite project file
 // type:project
 // name:flashLEDTimer
-// include:swift4GPIO.swift
 
 import Foundation
+import GPIO
 
-// auto detect board type (detects all boards with 40 GPIO pins)
+// auto detect board type
 let gpios = autoDetectBoardType()
-
-// for older boards with 26 GPIO pins please set board type manually
-//let gpios = PiCodeGPIO.RPIRev1
-//let gpios = PiCodeGPIO.RPIRev2
 
 // setup the GPIO pins
 var gp = gpios[.P17]!   // Pin to conect the LED to
