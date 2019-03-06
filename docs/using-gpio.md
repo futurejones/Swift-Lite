@@ -11,11 +11,11 @@
 First, we need import GPIO and then retrieve the list of GPIOs available on the board and get a reference to the one we want to modify.  
 GPIO will autodetect your board type.
 
-<code>
+````
 import GPIO
-</br>
+
 autoDetectBoardType()
-</code>
+````
 
 ---
 
