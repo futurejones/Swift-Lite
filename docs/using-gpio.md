@@ -13,7 +13,7 @@ GPIO will autodetect your board type.
 
 <code>
 import GPIO
-
+</br>
 autoDetectBoardType()
 </code>
 
