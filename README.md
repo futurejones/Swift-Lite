@@ -14,7 +14,7 @@ Swift-Lite Raspberry Pi Edition is a special Swift-Lite universal install for al
 Simply add `import GPIO` to your Swift project file.  
 Swift-Lite RPE is cross compatible over all Raspberry Pi models. This means that a Swift executable that is built on the Raspberry Pi 3 will work on the Raspberry Pi Zero/A+/2 etc including GPIO support.
 
-#### [Quick Start Guide](/docs/getting-started.md)
+#### [Installation and Quick Start Guide](/docs/getting-started.md)
 
 ### Sample Project, Module and Library files for Swift-Lite
 
