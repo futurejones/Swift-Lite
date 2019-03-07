@@ -41,7 +41,11 @@ Swift-Lite RPE is cross compatible over all Raspberry Pi models. This means that
 <img src="https://img.shields.io/badge/Swift%20Lite%20Build-Linux-green.svg" />
 
 `swift-lite-build` is a build utility that scans the swift project file for module and library dependencies and creates a custom swift build command to build the project. `swift-lite-build` does this by scanning the included meta tags and import statements in the swift project file.  
-`swift-lite-build` can be installed and used on any system or platform that has Swift installed on it.
+`swift-lite-build` can be installed and used on any system or platform that has Swift installed on it.  
+To use simply type `swift-lite-build` followed by the `project file name`.  
+````
+swift-lite-build helloWorld.swift
+````
 
 #### The Project File
 To use a project file with swift-lite-build add the following meta tags.
