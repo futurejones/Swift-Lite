@@ -20,7 +20,7 @@ usage="swift-lite-build [--help|-h] [--version|-v] [--test|-t] [--sudo|-s]\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename>] = build executable\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test] = build and run executable\n
 [\e[38;5;11mUsage:\e[m swift-lite-build <filename> --test --sudo] = build and run executable with sudo"
-version="swift-lite-build 3.0-dev"
+version="swift-lite-build 3.0.3"
 
 declare test=false
 declare sudo=false
@@ -94,7 +94,7 @@ while IFS= read -r line
             fi
         fi
     lNum=$lNum-1
-    #echo $lNum
+    
     if [[ $lNum -le 0 ]]
     then
         break
