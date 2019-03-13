@@ -22,12 +22,12 @@ This can be either `gp.direction = .IN` or `gp.direction = .OUT`
 var gp = gpios[.P9]!
 
 // set pin direction
-gp_trigger.direction = .OUT
+gp.direction = .OUT
 ````
 We can control the pin by setting the pin value. 1 = on, 0 = off.
 ````
 // set pin value
-gp_trigger.value = 0
+gp.value = 0
 ````
 
 For more advanced usage please see [SwiftyGPIO Usage](https://github.com/uraimo/SwiftyGPIO#usage)
