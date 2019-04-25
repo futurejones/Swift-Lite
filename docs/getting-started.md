@@ -15,13 +15,12 @@
 * Test swift install
 ```
 swift --version
-Swift version 4.2.2 (swift-4.2.2-RELEASE)
-Target: armv6-unknown-linux-gnueabihf
+Swift version 5.0.* (swift-5.0-RELEASE)
 ```
 * Test swift-lite-build install
 ```
 swift-lite-build --version
-swift-lite-build 3.0
+swift-lite-build 3.0.*
 ```
 
 ## Setup Project and Modules Directories
