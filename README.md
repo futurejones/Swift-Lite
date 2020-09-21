@@ -1,6 +1,6 @@
 # Swift-Lite Raspberry Pi Edition
 
-<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.0-orange.svg" /></a>&nbsp;&nbsp;<a href="https://raspberrypi.org"><img src="https://img.shields.io/badge/Raspberry%20Pi-all models-red.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Stretch-green.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Buster-green.svg" /></a>&nbsp;&nbsp;
+<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.1-orange.svg" /></a>&nbsp;&nbsp;<a href="https://raspberrypi.org"><img src="https://img.shields.io/badge/Raspberry%20Pi-all models-red.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Stretch-green.svg" /></a>&nbsp;&nbsp;<a href="https://www.raspberrypi.org/downloads/raspbian/"><img src="https://img.shields.io/badge/Raspbian-Buster-green.svg" /></a>&nbsp;&nbsp;<a href="https://futurejones.github.io/swiftx-cli/"><img src="https://img.shields.io/badge/SwiftX-1.0.0-orange.svg" /></a>&nbsp;&nbsp;
 
 ### What is Swift-Lite?
 Swift-Lite is a super lean version of Swift built for small arm SBC's like the Raspberry Pi running the Debian based Linux OS Raspbian. Swift-Lite uses meta-tags combined with a special build utility to make constructing a multi-file Swift project with Module and Library dependancies simple and easy. Swift Modules can be used in much the same way you would use a Framework or a Library.
@@ -36,7 +36,8 @@ Swift-Lite RPE is cross compatible over all Raspberry Pi models. This means that
 
 #### [Using GPIO](/docs/using-gpio.md)
 #### [Getting Started with Libraries](/docs/using-libraries.md)
-
+#### [SwiftX](https://futurejones.github.io/swiftx-cli/) is now available.
+SwiftX is a new build tool that incorporates `swift-lite-build`, a `swift` library builder and project export. 
 ### What is swift-lite-build
 <img src="https://img.shields.io/badge/Swift%20Lite%20Build-Linux-green.svg" />
 
